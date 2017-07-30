@@ -23,6 +23,8 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/start", handleStart).Methods("GET")
 	router.HandleFunc("/snapshot", handleSnapshot).Methods("GET")
+	router.HandleFunc("/motion/on", handleMotionOn).Methods("GET")
+	router.HandleFunc("/motion/off", handleMotionOff).Methods("GET")
 
 	work := func() {
 		led.Off()
@@ -63,6 +65,28 @@ func handleSnapshot(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func handleMotionOn(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("hit /motion/on")
+	fmt.Fprintln(w, "ok")
+
+	go func() {
+		led.On()
+		doMotionOn()
+	}()
+
+}
+
+func handleMotionOff(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("hit /motion/off")
+	fmt.Fprintln(w, "ok")
+
+	go func() {
+		led.Off()
+		doMotionOff()
+	}()
+
+}
+
 func startRecordingCmd() {
 	cmd := exec.Command("sh", "/home/pi/scripts/record.sh")
 	var out bytes.Buffer
@@ -81,6 +105,30 @@ func doSnapshot() {
 	cmd.Stdout = &out
 	err := cmd.Run()
 	fmt.Printf("SNAPSHOT RESULTS: %q\n", out.String())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func doMotionOn() {
+	cmd := exec.Command("sudo", "systemctl", "start", "motion")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	fmt.Printf("START MOTION %q\n", out.String())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func doMotionOff() {
+	cmd := exec.Command("sudo", "systemctl", "stop", "motion")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	fmt.Printf("STOPPING MOTION %q\n", out.String())
 
 	if err != nil {
 		log.Fatal(err)
