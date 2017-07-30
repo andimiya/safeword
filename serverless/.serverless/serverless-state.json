@@ -20,9 +20,10 @@
         "PHONE_NUMBER": "+1 609 828 3694",
         "NAME": "brock",
         "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
-        "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
-        "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
-        "BUCKET_NAME": "safeword-storage"
+        "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
+        "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
+        "BUCKET_NAME": "safeword-storage",
+        "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
       },
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
@@ -162,7 +163,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501397619604-2017-07-30T06:53:39.604Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-main",
               "Handler": "main/index.handler",
@@ -180,9 +181,10 @@
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
                   "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
-                  "BUCKET_NAME": "safeword-storage"
+                  "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
+                  "BUCKET_NAME": "safeword-storage",
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
                 }
               }
             },
@@ -191,14 +193,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
+          "MainLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
+              "CodeSha256": "7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xV+Kbv8o="
             }
           },
           "RecordVideoLambdaFunction": {
@@ -208,7 +210,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501397619604-2017-07-30T06:53:39.604Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-recordVideo",
               "Handler": "recordVideo/index.handler",
@@ -226,9 +228,10 @@
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
                   "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
-                  "BUCKET_NAME": "safeword-storage"
+                  "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
+                  "BUCKET_NAME": "safeword-storage",
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
                 }
               }
             },
@@ -237,14 +240,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "RecordVideoLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
+          "RecordVideoLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RecordVideoLambdaFunction"
               },
-              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
+              "CodeSha256": "7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xV+Kbv8o="
             }
           },
           "TextLambdaFunction": {
@@ -254,7 +257,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501397619604-2017-07-30T06:53:39.604Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-text",
               "Handler": "text/index.handler",
@@ -272,9 +275,10 @@
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
                   "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
-                  "BUCKET_NAME": "safeword-storage"
+                  "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
+                  "BUCKET_NAME": "safeword-storage",
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
                 }
               }
             },
@@ -283,14 +287,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "TextLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
+          "TextLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TextLambdaFunction"
               },
-              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
+              "CodeSha256": "7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xV+Kbv8o="
             }
           },
           "GetVideosLambdaFunction": {
@@ -300,7 +304,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501397619604-2017-07-30T06:53:39.604Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-getVideos",
               "Handler": "getVideos/index.handler",
@@ -318,9 +322,10 @@
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
                   "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
-                  "BUCKET_NAME": "safeword-storage"
+                  "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
+                  "BUCKET_NAME": "safeword-storage",
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
                 }
               }
             },
@@ -329,14 +334,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetVideosLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
+          "GetVideosLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetVideosLambdaFunction"
               },
-              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
+              "CodeSha256": "7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xV+Kbv8o="
             }
           },
           "ApiGatewayRestApi": {
@@ -451,7 +456,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1501394740458": {
+          "ApiGatewayDeployment1501397619710": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -540,25 +545,25 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
+              "Ref": "MainLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o"
             }
           },
           "RecordVideoLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RecordVideoLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
+              "Ref": "RecordVideoLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o"
             }
           },
           "TextLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TextLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
+              "Ref": "TextLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o"
             }
           },
           "GetVideosLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetVideosLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
+              "Ref": "GetVideosLambdaVersion7DZVZaUvv2wFmXxQSooRgheDv1aHlFaswz8xVKbv8o"
             }
           },
           "ServiceEndpoint": {
@@ -645,7 +650,7 @@
     "artifact": "/Users/brockinit/safeword/serverless/.serverless/safeword.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z",
+    "artifactDirectoryName": "serverless/safeword/safeword/1501397619604-2017-07-30T06:53:39.604Z",
     "artifact": "safeword.zip"
   }
 }

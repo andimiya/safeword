@@ -14,9 +14,10 @@ provider:
     PHONE_NUMBER: ${opt:number}
     NAME: ${opt:name}
     PI_ENDPOINT: "https://748bbbf3.ngrok.io/start"
-    VIDEO_ENDPOINT: "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos"
-    TEXT_ENDPOINT:  "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text"
+    VIDEO_ENDPOINT: "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos"
+    TEXT_ENDPOINT:  "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text"
     BUCKET_NAME: "safeword-storage"
+    APP_ID: 'amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4'
 
 functions:
   main:
