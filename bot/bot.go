@@ -22,6 +22,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/start", handleStart).Methods("GET")
+	router.HandleFunc("/snapshot", handleSnapshot).Methods("GET")
 
 	work := func() {
 		led.Off()
@@ -49,12 +50,34 @@ func handleStart(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func handleSnapshot(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("hit /snapshot")
+	fmt.Fprintln(w, "ok")
+
+	led.On()
+	doSnapshot()
+	led.Off()
+
+}
+
 func startRecordingCmd() {
 	cmd := exec.Command("sh", "/home/pi/scripts/record.sh")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
 	fmt.Printf("RECORDING RESULTS: %q\n", out.String())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func doSnapshot() {
+	cmd := exec.Command("sh", "/home/pi/scripts/snapshot.sh")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	fmt.Printf("SNAPSHOT RESULTS: %q\n", out.String())
 
 	if err != nil {
 		log.Fatal(err)
