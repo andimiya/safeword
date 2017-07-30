@@ -23,7 +23,9 @@
         "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
         "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
         "BUCKET_NAME": "safeword-storage",
-        "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+        "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+        "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+        "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
       },
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
@@ -175,7 +177,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-main",
               "Handler": "main/index.handler",
@@ -196,7 +198,9 @@
                   "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
                   "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage",
-                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+                  "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+                  "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
                 }
               }
             },
@@ -205,14 +209,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg": {
+          "MainLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "frTXinfBjYPVKnzPz+vVf6nDu7kQbHf0ZWfpCeJ4iBg="
+              "CodeSha256": "Etfa5Z+paWUYLXvLG7Y/hOw40b6KNqWnqYAskS7p9PA="
             }
           },
           "RecordVideoLambdaFunction": {
@@ -222,7 +226,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-recordVideo",
               "Handler": "recordVideo/index.handler",
@@ -243,7 +247,9 @@
                   "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
                   "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage",
-                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+                  "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+                  "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
                 }
               }
             },
@@ -252,14 +258,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "RecordVideoLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg": {
+          "RecordVideoLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RecordVideoLambdaFunction"
               },
-              "CodeSha256": "frTXinfBjYPVKnzPz+vVf6nDu7kQbHf0ZWfpCeJ4iBg="
+              "CodeSha256": "Etfa5Z+paWUYLXvLG7Y/hOw40b6KNqWnqYAskS7p9PA="
             }
           },
           "TextLambdaFunction": {
@@ -269,7 +275,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-text",
               "Handler": "text/index.handler",
@@ -290,7 +296,9 @@
                   "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
                   "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage",
-                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+                  "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+                  "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
                 }
               }
             },
@@ -299,14 +307,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "TextLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg": {
+          "TextLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TextLambdaFunction"
               },
-              "CodeSha256": "frTXinfBjYPVKnzPz+vVf6nDu7kQbHf0ZWfpCeJ4iBg="
+              "CodeSha256": "Etfa5Z+paWUYLXvLG7Y/hOw40b6KNqWnqYAskS7p9PA="
             }
           },
           "GetVideosLambdaFunction": {
@@ -316,7 +324,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-getVideos",
               "Handler": "getVideos/index.handler",
@@ -337,7 +345,9 @@
                   "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
                   "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage",
-                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+                  "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+                  "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
                 }
               }
             },
@@ -346,14 +356,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetVideosLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg": {
+          "GetVideosLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetVideosLambdaFunction"
               },
-              "CodeSha256": "frTXinfBjYPVKnzPz+vVf6nDu7kQbHf0ZWfpCeJ4iBg="
+              "CodeSha256": "Etfa5Z+paWUYLXvLG7Y/hOw40b6KNqWnqYAskS7p9PA="
             }
           },
           "GetSnapshotsLambdaFunction": {
@@ -363,7 +373,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-getSnapshots",
               "Handler": "getSnapshots/index.handler",
@@ -384,7 +394,9 @@
                   "VIDEO_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/videos",
                   "TEXT_ENDPOINT": "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage",
-                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4"
+                  "APP_ID": "amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4",
+                  "MOTION_DETECTION_ON_ENDPOINT": "https://27213d64.ngrok.io/motion/on",
+                  "MOTION_DETECTION_OFF_ENDPOINT": "https://27213d64.ngrok.io/motion/off"
                 }
               }
             },
@@ -393,14 +405,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetSnapshotsLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg": {
+          "GetSnapshotsLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetSnapshotsLambdaFunction"
               },
-              "CodeSha256": "frTXinfBjYPVKnzPz+vVf6nDu7kQbHf0ZWfpCeJ4iBg="
+              "CodeSha256": "Etfa5Z+paWUYLXvLG7Y/hOw40b6KNqWnqYAskS7p9PA="
             }
           },
           "ApiGatewayRestApi": {
@@ -568,7 +580,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1501400503749": {
+          "ApiGatewayDeployment1501449536282": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -691,31 +703,31 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg"
+              "Ref": "MainLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA"
             }
           },
           "RecordVideoLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RecordVideoLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg"
+              "Ref": "RecordVideoLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA"
             }
           },
           "TextLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TextLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg"
+              "Ref": "TextLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA"
             }
           },
           "GetVideosLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetVideosLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg"
+              "Ref": "GetVideosLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA"
             }
           },
           "GetSnapshotsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetSnapshotsLambdaVersionfrTXinfBjYPVKnzPzvVf6nDu7kQbHf0ZWfpCeJ4iBg"
+              "Ref": "GetSnapshotsLambdaVersionEtfa5ZpaWUYLXvLG7YhOw40b6KNqWnqYAskS7p9PA"
             }
           },
           "ServiceEndpoint": {
@@ -817,7 +829,7 @@
     "artifact": "/Users/brockinit/safeword/serverless/.serverless/safeword.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/safeword/safeword/1501400503603-2017-07-30T07:41:43.603Z",
+    "artifactDirectoryName": "serverless/safeword/safeword/1501449536146-2017-07-30T21:18:56.146Z",
     "artifact": "safeword.zip"
   }
 }

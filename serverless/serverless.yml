@@ -18,6 +18,8 @@ provider:
     TEXT_ENDPOINT:  "https://kf9zxc5wj0.execute-api.us-east-1.amazonaws.com/safeword/text"
     BUCKET_NAME: "safeword-storage"
     APP_ID: 'amzn1.ask.skill.80e3c59c-3c64-400e-ab87-134d4a1ac1b4'
+    MOTION_DETECTION_ON_ENDPOINT: "https://27213d64.ngrok.io/motion/on"
+    MOTION_DETECTION_OFF_ENDPOINT: "https://27213d64.ngrok.io/motion/off"
 
 functions:
   main:
