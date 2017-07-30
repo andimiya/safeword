@@ -11,3 +11,7 @@ functions:
     handler: main/index.handler
   text:
     handler: text/index.handler
+    events:
+      - http:
+          path: /
+          method: post
