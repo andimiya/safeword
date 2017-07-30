@@ -3,20 +3,21 @@
 const Alexa = require('alexa-sdk');
 const request = require('request');
 const handlers = {
-  LaunchRequest: function() {
-    this.emit('SafeIntent');
-  },
   SafeIntent: function() {
     request.get(process.env.PI_ENDPOINT, (err, res) => {
-      if (err) {
-        console.log('ERROR VIDEO', err);
-      }
       request.post(process.env.TEXT_ENDPOINT, (err, res) => {
-        if (err) {
-          console.log('ERROR TEXT', err);
-        }
         this.emit(':tell', '');
       });
+    });
+  },
+  LockHouseIntent: function() {
+    request.get(process.env.MOTION_DETECTION_ON_ENDPOINT, (err, res) => {
+      this.emit(':tell', 'Ok, I turned on motion detection.');
+    });
+  },
+  UnlockHouseIntent: function() {
+    request.get(process.env.MOTION_DETECTION_OFF_ENDPOINT, (err, res) => {
+      this.emit(':tell', 'Welcome back, I have turned off motion detection.');
     });
   },
 };
