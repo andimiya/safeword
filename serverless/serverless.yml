@@ -1,0 +1,25 @@
+service: safeword
+
+frameworkVersion: ">=1.8.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sns:Publish"
+      Resource: "*"
+  environment:
+    PHONE_NUMBER: ${opt:number}
+    NAME: ${opt:name}
+
+functions:
+  main:
+    handler: main/index.handler
+  text:
+    handler: text/index.handler
+    events:
+      - http:
+          path: /
+          method: post
