@@ -13,20 +13,31 @@ provider:
   environment:
     PHONE_NUMBER: ${opt:number}
     NAME: ${opt:name}
-    PI_ENDPOINT: "https://a7f3f473.ngrok.io/start"
+    PI_ENDPOINT: "https://748bbbf3.ngrok.io/start"
+    VIDEO_ENDPOINT: "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos"
+    TEXT_ENDPOINT:  "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text"
+    BUCKET_NAME: "safeword-storage"
 
 functions:
   main:
     handler: main/index.handler
+  recordVideo:
+    handler: recordVideo/index.handler
   text:
     handler: text/index.handler
     events:
       - http:
-          path: /
+          path: /text
           method: post
-  video:
-    handler: video/index.handler
+  getVideos:
+    handler: getVideos/index.handler
     events:
       - http:
-          path: /
-          method: post
+          path: /videos
+          method: get
+  getSnapshots:
+    handler: getSnapshots/index.handler
+    events:
+      - http:
+          path: /cam
+          method: get

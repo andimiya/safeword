@@ -1,3 +1,6 @@
 scripts/cam
 scripts/videos
+local-scripts/cam
+local-scripts/videos
 bot/bot
+serverless/node_modules
