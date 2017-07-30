@@ -1,4 +1,8 @@
 scripts/cam
 scripts/videos
+<<<<<<< HEAD
 local-scripts/cam
 local-scripts/videos
+=======
+bot/bot
+>>>>>>> 9fdfbdb2b005d3a044f9aa67375b533a3f0a2818
