@@ -19,9 +19,9 @@
       "environment": {
         "PHONE_NUMBER": "+1 609 828 3694",
         "NAME": "brock",
-        "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start",
-        "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/videos",
-        "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/text",
+        "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
+        "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
+        "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
         "BUCKET_NAME": "safeword-storage"
       },
       "versionFunctions": true,
@@ -38,16 +38,16 @@
               "LogGroupName": "/aws/lambda/safeword-safeword-main"
             }
           },
-          "TextLogGroup": {
-            "Type": "AWS::Logs::LogGroup",
-            "Properties": {
-              "LogGroupName": "/aws/lambda/safeword-safeword-text"
-            }
-          },
           "RecordVideoLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/safeword-safeword-recordVideo"
+            }
+          },
+          "TextLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/safeword-safeword-text"
             }
           },
           "GetVideosLogGroup": {
@@ -100,10 +100,10 @@
                             "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-main:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-text:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-recordVideo:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-recordVideo:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-text:*"
                           },
                           {
                             "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-getVideos:*"
@@ -120,10 +120,10 @@
                             "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-main:*:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-text:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-recordVideo:*:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-recordVideo:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-text:*:*"
                           },
                           {
                             "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-safeword-getVideos:*:*"
@@ -162,7 +162,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501393024139-2017-07-30T05:37:04.139Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-main",
               "Handler": "main/index.handler",
@@ -179,9 +179,9 @@
                 "Variables": {
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
-                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/text",
+                  "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
+                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage"
                 }
               }
@@ -191,60 +191,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM": {
+          "MainLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "Tyk66jML6Svy0gz0LofqhNElS+JqWM/+ppry7YvR4LM="
-            }
-          },
-          "TextLambdaFunction": {
-            "Type": "AWS::Lambda::Function",
-            "Properties": {
-              "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/safeword/safeword/1501393024139-2017-07-30T05:37:04.139Z/safeword.zip"
-              },
-              "FunctionName": "safeword-safeword-text",
-              "Handler": "text/index.handler",
-              "MemorySize": 1024,
-              "Role": {
-                "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
-                  "Arn"
-                ]
-              },
-              "Runtime": "nodejs6.10",
-              "Timeout": 6,
-              "Environment": {
-                "Variables": {
-                  "PHONE_NUMBER": "+1 609 828 3694",
-                  "NAME": "brock",
-                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/text",
-                  "BUCKET_NAME": "safeword-storage"
-                }
-              }
-            },
-            "DependsOn": [
-              "TextLogGroup",
-              "IamRoleLambdaExecution"
-            ]
-          },
-          "TextLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "TextLambdaFunction"
-              },
-              "CodeSha256": "Tyk66jML6Svy0gz0LofqhNElS+JqWM/+ppry7YvR4LM="
+              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
             }
           },
           "RecordVideoLambdaFunction": {
@@ -254,7 +208,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501393024139-2017-07-30T05:37:04.139Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-recordVideo",
               "Handler": "recordVideo/index.handler",
@@ -271,9 +225,9 @@
                 "Variables": {
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
-                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/text",
+                  "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
+                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage"
                 }
               }
@@ -283,14 +237,60 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "RecordVideoLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM": {
+          "RecordVideoLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RecordVideoLambdaFunction"
               },
-              "CodeSha256": "Tyk66jML6Svy0gz0LofqhNElS+JqWM/+ppry7YvR4LM="
+              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
+            }
+          },
+          "TextLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
+              },
+              "FunctionName": "safeword-safeword-text",
+              "Handler": "text/index.handler",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs6.10",
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "PHONE_NUMBER": "+1 609 828 3694",
+                  "NAME": "brock",
+                  "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
+                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
+                  "BUCKET_NAME": "safeword-storage"
+                }
+              }
+            },
+            "DependsOn": [
+              "TextLogGroup",
+              "IamRoleLambdaExecution"
+            ]
+          },
+          "TextLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "TextLambdaFunction"
+              },
+              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
             }
           },
           "GetVideosLambdaFunction": {
@@ -300,7 +300,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/safeword/1501393024139-2017-07-30T05:37:04.139Z/safeword.zip"
+                "S3Key": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z/safeword.zip"
               },
               "FunctionName": "safeword-safeword-getVideos",
               "Handler": "getVideos/index.handler",
@@ -317,9 +317,9 @@
                 "Variables": {
                   "PHONE_NUMBER": "+1 609 828 3694",
                   "NAME": "brock",
-                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start",
-                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/videos",
-                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/brock/text",
+                  "PI_ENDPOINT": "https://748bbbf3.ngrok.io/start",
+                  "VIDEO_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/videos",
+                  "TEXT_ENDPOINT": "https://9m5fe3vaq7.execute-api.us-east-1.amazonaws.com/safeword/text",
                   "BUCKET_NAME": "safeword-storage"
                 }
               }
@@ -329,14 +329,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetVideosLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM": {
+          "GetVideosLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetVideosLambdaFunction"
               },
-              "CodeSha256": "Tyk66jML6Svy0gz0LofqhNElS+JqWM/+ppry7YvR4LM="
+              "CodeSha256": "XfESfGZcafJx+n8ip9Eg6eKkzhu/Bt++s3a0C3zDY3M="
             }
           },
           "ApiGatewayRestApi": {
@@ -355,21 +355,6 @@
                 ]
               },
               "PathPart": "text",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayResourceRecord": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
-              },
-              "PathPart": "record",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -428,44 +413,6 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayMethodRecordPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceRecord"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "RecordVideoLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            }
-          },
           "ApiGatewayMethodVideosGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -504,7 +451,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1501393024244": {
+          "ApiGatewayDeployment1501394740458": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -514,7 +461,6 @@
             },
             "DependsOn": [
               "ApiGatewayMethodTextPost",
-              "ApiGatewayMethodRecordPost",
               "ApiGatewayMethodVideosGet"
             ]
           },
@@ -524,39 +470,6 @@
               "FunctionName": {
                 "Fn::GetAtt": [
                   "TextLambdaFunction",
-                  "Arn"
-                ]
-              },
-              "Action": "lambda:InvokeFunction",
-              "Principal": "apigateway.amazonaws.com",
-              "SourceArn": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:aws:execute-api:",
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":",
-                    {
-                      "Ref": "ApiGatewayRestApi"
-                    },
-                    "/*/*"
-                  ]
-                ]
-              }
-            }
-          },
-          "RecordVideoLambdaPermissionApiGateway": {
-            "Type": "AWS::Lambda::Permission",
-            "Properties": {
-              "FunctionName": {
-                "Fn::GetAtt": [
-                  "RecordVideoLambdaFunction",
                   "Arn"
                 ]
               },
@@ -627,25 +540,25 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM"
-            }
-          },
-          "TextLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "TextLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM"
+              "Ref": "MainLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
             }
           },
           "RecordVideoLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RecordVideoLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM"
+              "Ref": "RecordVideoLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
+            }
+          },
+          "TextLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "TextLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
             }
           },
           "GetVideosLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetVideosLambdaVersionTyk66jML6Svy0gz0LofqhNElSJqWMppry7YvR4LM"
+              "Ref": "GetVideosLambdaVersionXfESfGZcafJxn8ip9Eg6eKkzhuBts3a0C3zDY3M"
             }
           },
           "ServiceEndpoint": {
@@ -691,6 +604,13 @@
         "package": {},
         "vpc": {}
       },
+      "recordVideo": {
+        "handler": "recordVideo/index.handler",
+        "events": [],
+        "name": "safeword-safeword-recordVideo",
+        "package": {},
+        "vpc": {}
+      },
       "text": {
         "handler": "text/index.handler",
         "events": [
@@ -703,21 +623,6 @@
           }
         ],
         "name": "safeword-safeword-text",
-        "package": {},
-        "vpc": {}
-      },
-      "recordVideo": {
-        "handler": "recordVideo/index.handler",
-        "events": [
-          {
-            "http": {
-              "path": "record",
-              "method": "post",
-              "integration": "AWS_PROXY"
-            }
-          }
-        ],
-        "name": "safeword-safeword-recordVideo",
         "package": {},
         "vpc": {}
       },
@@ -740,7 +645,7 @@
     "artifact": "/Users/brockinit/safeword/serverless/.serverless/safeword.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/safeword/safeword/1501393024139-2017-07-30T05:37:04.139Z",
+    "artifactDirectoryName": "serverless/safeword/safeword/1501394740340-2017-07-30T06:05:40.340Z",
     "artifact": "safeword.zip"
   }
 }
