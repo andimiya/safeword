@@ -36,3 +36,9 @@ functions:
       - http:
           path: /videos
           method: get
+  getSnapshots:
+    handler: getSnapshots/index.handler
+    events:
+      - http:
+          path: /cam
+          method: get

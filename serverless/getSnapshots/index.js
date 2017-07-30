@@ -1,0 +1,17 @@
+'use strict';
+
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3();
+
+module.exports.handler = (event, context, callback) => {
+  const params = {
+    Bucket: process.env.BUCKET_NAME,
+    StartAfter: 'cam',
+  };
+  s3.listObjectsV2(params, (err, data) => {
+    callback(err, {
+      statusCode: 200,
+      body: JSON.stringify(data.Contents),
+    });
+  });
+};
