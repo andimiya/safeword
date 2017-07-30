@@ -44,3 +44,9 @@ functions:
       - http:
           path: /cam
           method: get
+  getMotionDetection:
+    handler: getMotionDetection/index.handler
+    events:
+      - http:
+          path: /motion
+          method: get
