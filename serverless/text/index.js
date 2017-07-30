@@ -3,7 +3,8 @@ const sns = new AWS.SNS();
 
 module.exports.handler = (event, context, callback) => {
   const params = {
-    Message: `It's me, ${process.env.NAME}. I'm in danger, please help me.`,
+    Message: `It's me, ${process.env
+      .NAME}. I'm in danger, please help me. I'm at home.`,
     MessageAttributes: {
       someKey: {
         DataType: 'String',
