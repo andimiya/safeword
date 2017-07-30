@@ -44,19 +44,22 @@ func handleStart(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hit /start")
 	fmt.Fprintln(w, "ok")
 
-	led.On()
-	startRecordingCmd()
-	led.Off()
-
+	go func() {
+		led.On()
+		startRecordingCmd()
+		led.Off()
+	}()
 }
 
 func handleSnapshot(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hit /snapshot")
 	fmt.Fprintln(w, "ok")
 
-	led.On()
-	doSnapshot()
-	led.Off()
+	go func() {
+		led.On()
+		doSnapshot()
+		led.Off()
+	}()
 
 }
 
