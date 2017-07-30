@@ -11,4 +11,4 @@ avconv -f video4linux2 -r 30 -s 640x480 -i /dev/video* \
   -ar 22050 -ab 64k -strict experimental -acodec aac \
   -frames:v $FRAMES -vcodec mpeg4 -y ~/videos/`date -u +%Y-%m-%d_%H-%M-%S`.mp4
 
-aws s3 sync ~/videos s3://safeword-storage/videos
+aws s3 sync --acl public-read ~/videos s3://safeword-storage/videos
