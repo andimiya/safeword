@@ -13,12 +13,19 @@ provider:
   environment:
     PHONE_NUMBER: ${opt:number}
     NAME: ${opt:name}
+    PI_ENDPOINT: "https://a7f3f473.ngrok.io/start"
 
 functions:
   main:
     handler: main/index.handler
   text:
     handler: text/index.handler
+    events:
+      - http:
+          path: /
+          method: post
+  video:
+    handler: video/index.handler
     events:
       - http:
           path: /
