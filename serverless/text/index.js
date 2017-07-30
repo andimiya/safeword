@@ -15,10 +15,14 @@ module.exports.handler = (event, context, callback) => {
     Subject: 'Emergency',
   };
 
-  sns.publish(params, function(err, data) {
+  sns.publish(params, (err, data) => {
     if (err) {
-      return callback(err);
+      return callback(err, {
+        statusCode: 500,
+      });
     }
-    return callback(null);
+    return callback(null, {
+      statusCode: 200,
+    });
   });
 };

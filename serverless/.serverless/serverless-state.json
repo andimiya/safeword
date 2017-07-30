@@ -1,13 +1,10 @@
 {
   "service": {
     "service": "safeword",
-    "serviceObject": {
-      "name": "safeword"
-    },
     "provider": {
       "stage": "dev",
       "region": "us-east-1",
-      "variableSyntax": "\\${([ ~:a-zA-Z0-9._,\\-\\/\\(\\)]+?)}",
+      "variableSyntax": "\\${([ :a-zA-Z0-9._,\\-\\/\\(\\)]+?)}",
       "name": "aws",
       "runtime": "nodejs6.10",
       "iamRoleStatements": [
@@ -20,11 +17,11 @@
         }
       ],
       "environment": {
-        "PHONE_NUMBER": "+1 808 206 0616",
-        "NAME": "nao"
+        "PHONE_NUMBER": "+1 609 828 3694",
+        "NAME": "brock",
+        "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start"
       },
       "versionFunctions": true,
-      "remoteFunctionData": null,
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
         "Description": "The AWS CloudFormation template for this Serverless application",
@@ -35,13 +32,19 @@
           "MainLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/safeword-nao-main"
+              "LogGroupName": "/aws/lambda/safeword-brock-main"
             }
           },
           "TextLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/safeword-nao-text"
+              "LogGroupName": "/aws/lambda/safeword-brock-text"
+            }
+          },
+          "VideoLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/safeword-brock-video"
             }
           },
           "IamRoleLambdaExecution": {
@@ -69,7 +72,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "nao",
+                        "brock",
                         "safeword",
                         "lambda"
                       ]
@@ -85,10 +88,13 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-nao-main:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-main:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-nao-text:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-text:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-video:*"
                           }
                         ]
                       },
@@ -99,10 +105,13 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-nao-main:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-main:*:*"
                           },
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-nao-text:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-text:*:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/safeword-brock-video:*:*"
                           }
                         ]
                       },
@@ -123,7 +132,7 @@
                   "-",
                   [
                     "safeword",
-                    "nao",
+                    "brock",
                     "us-east-1",
                     "lambdaRole"
                   ]
@@ -138,9 +147,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/nao/1501378147965-2017-07-30T01:29:07.965Z/safeword.zip"
+                "S3Key": "serverless/safeword/brock/1501380394999-2017-07-30T02:06:34.999Z/safeword.zip"
               },
-              "FunctionName": "safeword-nao-main",
+              "FunctionName": "safeword-brock-main",
               "Handler": "main/index.handler",
               "MemorySize": 1024,
               "Role": {
@@ -153,8 +162,9 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "PHONE_NUMBER": "+1 808 206 0616",
-                  "NAME": "nao"
+                  "PHONE_NUMBER": "+1 609 828 3694",
+                  "NAME": "brock",
+                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start"
                 }
               }
             },
@@ -163,14 +173,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersion3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd9UfwO3FhQ7E": {
+          "MainLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd++9UfwO3FhQ7E="
+              "CodeSha256": "Oz4UowBJ0nYXDU61G8t+Qlxz+4yJ5OEPSgdFXPmqTcw="
             }
           },
           "TextLambdaFunction": {
@@ -180,9 +190,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/safeword/nao/1501378147965-2017-07-30T01:29:07.965Z/safeword.zip"
+                "S3Key": "serverless/safeword/brock/1501380394999-2017-07-30T02:06:34.999Z/safeword.zip"
               },
-              "FunctionName": "safeword-nao-text",
+              "FunctionName": "safeword-brock-text",
               "Handler": "text/index.handler",
               "MemorySize": 1024,
               "Role": {
@@ -195,8 +205,9 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "PHONE_NUMBER": "+1 808 206 0616",
-                  "NAME": "nao"
+                  "PHONE_NUMBER": "+1 609 828 3694",
+                  "NAME": "brock",
+                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start"
                 }
               }
             },
@@ -205,20 +216,63 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "TextLambdaVersion3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd9UfwO3FhQ7E": {
+          "TextLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TextLambdaFunction"
               },
-              "CodeSha256": "3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd++9UfwO3FhQ7E="
+              "CodeSha256": "Oz4UowBJ0nYXDU61G8t+Qlxz+4yJ5OEPSgdFXPmqTcw="
+            }
+          },
+          "VideoLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/safeword/brock/1501380394999-2017-07-30T02:06:34.999Z/safeword.zip"
+              },
+              "FunctionName": "safeword-brock-video",
+              "Handler": "video/index.handler",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs6.10",
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "PHONE_NUMBER": "+1 609 828 3694",
+                  "NAME": "brock",
+                  "PI_ENDPOINT": "https://a7f3f473.ngrok.io/start"
+                }
+              }
+            },
+            "DependsOn": [
+              "VideoLogGroup",
+              "IamRoleLambdaExecution"
+            ]
+          },
+          "VideoLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "VideoLambdaFunction"
+              },
+              "CodeSha256": "Oz4UowBJ0nYXDU61G8t+Qlxz+4yJ5OEPSgdFXPmqTcw="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "nao-safeword"
+              "Name": "brock-safeword"
             }
           },
           "ApiGatewayMethodPost": {
@@ -250,7 +304,7 @@
                       ":lambda:path/2015-03-31/functions/",
                       {
                         "Fn::GetAtt": [
-                          "TextLambdaFunction",
+                          "VideoLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -262,15 +316,16 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1501378147974": {
+          "ApiGatewayDeployment1501380395011": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               },
-              "StageName": "nao"
+              "StageName": "brock"
             },
             "DependsOn": [
+              "ApiGatewayMethodPost",
               "ApiGatewayMethodPost"
             ]
           },
@@ -280,6 +335,39 @@
               "FunctionName": {
                 "Fn::GetAtt": [
                   "TextLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "VideoLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "VideoLambdaFunction",
                   "Arn"
                 ]
               },
@@ -317,13 +405,19 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersion3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd9UfwO3FhQ7E"
+              "Ref": "MainLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw"
             }
           },
           "TextLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TextLambdaVersion3Hszz7T6rgBCGXPiGnnQqJoa9s9Zjd9UfwO3FhQ7E"
+              "Ref": "TextLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw"
+            }
+          },
+          "VideoLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "VideoLambdaVersionOz4UowBJ0nYXDU61G8tQlxz4yJ5OEPSgdFXPmqTcw"
             }
           },
           "ServiceEndpoint": {
@@ -336,7 +430,7 @@
                   {
                     "Ref": "ApiGatewayRestApi"
                   },
-                  ".execute-api.us-east-1.amazonaws.com/nao"
+                  ".execute-api.us-east-1.amazonaws.com/brock"
                 ]
               ]
             }
@@ -365,7 +459,7 @@
       "main": {
         "handler": "main/index.handler",
         "events": [],
-        "name": "safeword-nao-main",
+        "name": "safeword-brock-main",
         "package": {},
         "vpc": {}
       },
@@ -380,15 +474,30 @@
             }
           }
         ],
-        "name": "safeword-nao-text",
+        "name": "safeword-brock-text",
+        "package": {},
+        "vpc": {}
+      },
+      "video": {
+        "handler": "video/index.handler",
+        "events": [
+          {
+            "http": {
+              "path": "",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "safeword-brock-video",
         "package": {},
         "vpc": {}
       }
     },
-    "artifact": "/Users/naotoy/Documents/safeword/serverless/.serverless/safeword.zip"
+    "artifact": "/Users/brockinit/safeword/serverless/.serverless/safeword.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/safeword/nao/1501378147965-2017-07-30T01:29:07.965Z",
+    "artifactDirectoryName": "serverless/safeword/brock/1501380394999-2017-07-30T02:06:34.999Z",
     "artifact": "safeword.zip"
   }
 }
